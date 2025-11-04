@@ -2,34 +2,23 @@ import random
 import os
 import sys
 from dotenv import load_dotenv
-from cloudfs import CloudFs
+from cloudfs_oci import OCICloudFs
 from xmlrpc.server import SimpleXMLRPCServer
 
-# Load S3 config from .env
-load_dotenv()
-S3_URI = os.getenv("S3_URI")
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-AWS_REGION = os.getenv("AWS_REGION", "us-east-1")
+oci_config_path = "~/.oci/config"
+oci_bucket = "bucket-c2pa-test"
+oci_namespace = "axvcbsiy74ty"
 
-S3_OPTS = {
-    "key": AWS_ACCESS_KEY_ID,
-    "secret": AWS_SECRET_ACCESS_KEY,
-    "client_kwargs": {"region_name": AWS_REGION}
-}
-
-print(f"[INFO] Using S3_URI: {S3_URI}")
-print(f"[INFO] AWS_ACCESS_KEY_ID: {AWS_ACCESS_KEY_ID}")
-print(f"[INFO] AWS_REGION: {AWS_REGION}")
-fs = CloudFs(S3_URI, **S3_OPTS)
+fs = OCICloudFs(oci_namespace, oci_bucket, oci_config_path)
+port = None
 
 def upload_large_file():
-    s3_file_path = "dest_files/test_file_upload_140mb.bin"
+    oci_file_path = "dest_files/test_file_upload_140mb_" + port + ".bin"
     local_file_path = "./test_file_upload_140mb.bin"
 
     try:
-        #print(f"[INFO] Uploading file {local_file_path} -> {S3_URI}/{s3_file_path}")
-        fs.upload_file(s3_file_path, local_file_path)
+        #print(f"[INFO] Uploading file {local_file_path} -> {oci_file_path}")
+        fs.upload_file(oci_file_path, local_file_path)
         #print('Upload file done')
     except Exception as e:
         print('Upload file fail', e)
@@ -37,12 +26,12 @@ def upload_large_file():
     return True
 
 def upload_small_file():
-    s3_file_path = "dest_files/test_file_upload_8mb.bin"
+    oci_file_path = "dest_files/test_file_upload_8mb_" + port + ".bin"
     local_file_path = "./test_file_upload_8mb.bin"
 
     try:
-        #print(f"[INFO] Uploading file {local_file_path} -> {S3_URI}/{s3_file_path}")
-        fs.upload_file(s3_file_path, local_file_path)
+        #print(f"[INFO] Uploading file {local_file_path} -> {oci_file_path}")
+        fs.upload_file(oci_file_path, local_file_path)
         #print('Upload file done')
     except Exception as e:
         print('Upload file fail', e)
@@ -50,12 +39,12 @@ def upload_small_file():
     return True
 
 def download_large_file():
-    s3_file_path = "src_files/test_file_140mb.bin"
+    oci_file_path = "src_files/test_file_140mb.bin"
     local_file_path = "./test_file_140mb_" + port + ".bin"
 
     try:
-        #print(f"[INFO] Downloading file {S3_URI}/{s3_file_path} --> {local_file_path}")
-        fs.download_file(s3_file_path, local_file_path)
+        #print(f"[INFO] Downloading file {oci_file_path} --> {local_file_path}")
+        fs.download_file(oci_file_path, local_file_path)
         #print('Download file done')
     except Exception as e:
         print('Download file fail', e)
@@ -63,12 +52,12 @@ def download_large_file():
     return True
 
 def download_small_file():
-    s3_file_path = "src_files/test_file_8mb.bin"
+    oci_file_path = "src_files/test_file_8mb.bin"
     local_file_path = "./test_file_8mb_" + port + ".bin"
 
     try:
-        #print(f"[INFO] Downloading file {S3_URI}/{s3_file_path} --> {local_file_path}")
-        fs.download_file(s3_file_path, local_file_path)
+        #print(f"[INFO] Downloading file {oci_file_path} --> {local_file_path}")
+        fs.download_file(oci_file_path, local_file_path)
         #print('Download file done')
     except Exception as e:
         print('Download file fail', e)
