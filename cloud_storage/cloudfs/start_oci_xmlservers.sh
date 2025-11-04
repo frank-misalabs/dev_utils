@@ -15,3 +15,20 @@ taskset -c 12 python load_test_oci_server.py 8893 &
 taskset -c 13 python load_test_oci_server.py 8894 &
 taskset -c 14 python load_test_oci_server.py 8895 &
 taskset -c 15 python load_test_oci_server.py 8896 &
+
+taskset -c 16 python load_test_oci_server.py 8897 &
+taskset -c 17 python load_test_oci_server.py 8898 &
+taskset -c 18 python load_test_oci_server.py 8899 &
+taskset -c 19 python load_test_oci_server.py 8900 &
+taskset -c 20 python load_test_oci_server.py 8901 &
+taskset -c 21 python load_test_oci_server.py 8902 &
+taskset -c 22 python load_test_oci_server.py 8903 &
+taskset -c 23 python load_test_oci_server.py 8904 &
+taskset -c 24 python load_test_oci_server.py 8905 &
+taskset -c 25 python load_test_oci_server.py 8906 &
+taskset -c 26 python load_test_oci_server.py 8907 &
+taskset -c 27 python load_test_oci_server.py 8908 &
+taskset -c 28 python load_test_oci_server.py 8909 &
+taskset -c 29 python load_test_oci_server.py 8910 &
+taskset -c 30 python load_test_oci_server.py 8911 &
+taskset -c 31 python load_test_oci_server.py 8912 &

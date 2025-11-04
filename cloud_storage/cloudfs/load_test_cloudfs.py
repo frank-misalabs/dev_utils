@@ -53,7 +53,7 @@ class UploadLargeFileUser1(XmlRpcUser):
     host = "http://127.0.0.1:8881/"
     
     # make simulated users wait between x & x secs after each task is executed
-    wait_time = between(5, 6)
+    wait_time = between(6, 7)
     @task(1)
     def upload_large_file(self):
         self.client.upload_large_file()
@@ -63,7 +63,7 @@ class UploadLargeFileUser2(XmlRpcUser):
     host = "http://127.0.0.1:8882/"
     
     # make simulated users wait between x & x secs after each task is executed
-    wait_time = between(5, 6)
+    wait_time = between(6, 7)
     @task(1)
     def upload_large_file(self):
         self.client.upload_large_file()
@@ -73,7 +73,7 @@ class UploadLargeFileUser3(XmlRpcUser):
     host = "http://127.0.0.1:8883/"
     
     # make simulated users wait between x & x secs after each task is executed
-    wait_time = between(5, 6)
+    wait_time = between(6, 7)
     @task(1)
     def upload_large_file(self):
         self.client.upload_large_file()
@@ -83,7 +83,7 @@ class UploadLargeFileUser4(XmlRpcUser):
     host = "http://127.0.0.1:8884/"
     
     # make simulated users wait between x & x secs after each task is executed
-    wait_time = between(5, 6)
+    wait_time = between(6, 7)
     @task(1)
     def upload_large_file(self):
         self.client.upload_large_file()
@@ -133,7 +133,7 @@ class DownloadLargeFileUser1(XmlRpcUser):
     host = "http://127.0.0.1:8889/"
     
     # make simulated users wait between x & x secs after each task is executed
-    wait_time = between(5, 6)
+    wait_time = between(6, 7)
     @task(1)
     def download_large_file(self):
         self.client.download_large_file()
@@ -143,7 +143,7 @@ class DownloadLargeFileUser2(XmlRpcUser):
     host = "http://127.0.0.1:8890/"
     
     # make simulated users wait between x & x secs after each task is executed
-    wait_time = between(5, 6)
+    wait_time = between(6, 7)
     @task(1)
     def download_large_file(self):
         self.client.download_large_file()
@@ -153,7 +153,7 @@ class DownloadLargeFileUser3(XmlRpcUser):
     host = "http://127.0.0.1:8891/"
     
     # make simulated users wait between x & x secs after each task is executed
-    wait_time = between(5, 6)
+    wait_time = between(6, 7)
     @task(1)
     def download_large_file(self):
         self.client.download_large_file()
@@ -163,7 +163,7 @@ class DownloadLargeFileUser4(XmlRpcUser):
     host = "http://127.0.0.1:8892/"
     
     # make simulated users wait between x & x secs after each task is executed
-    wait_time = between(5, 6)
+    wait_time = between(6, 7)
     @task(1)
     def download_large_file(self):
         self.client.download_large_file()
@@ -209,3 +209,162 @@ class DownloadSmallFileUser4(XmlRpcUser):
         self.client.download_small_file()
         print("Download small file completed")
 
+class UploadLargeFileUser1b(XmlRpcUser):
+    host = "http://127.0.0.1:8897/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(6, 7)
+    @task(1)
+    def upload_large_file(self):
+        self.client.upload_large_file()
+        print("Upload large file completed")
+
+class UploadLargeFileUser2b(XmlRpcUser):
+    host = "http://127.0.0.1:8898/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(6, 7)
+    @task(1)
+    def upload_large_file(self):
+        self.client.upload_large_file()
+        print("Upload large file completed")
+
+class UploadLargeFileUser3b(XmlRpcUser):
+    host = "http://127.0.0.1:8899/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(6, 7)
+    @task(1)
+    def upload_large_file(self):
+        self.client.upload_large_file()
+        print("Upload large file completed")
+
+class UploadLargeFileUser4b(XmlRpcUser):
+    host = "http://127.0.0.1:8900/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(6, 7)
+    @task(1)
+    def upload_large_file(self):
+        self.client.upload_large_file()
+        print("Upload large file completed")
+
+class UploadSmallFileUser1b(XmlRpcUser):
+    host = "http://127.0.0.1:8901/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(1, 2)
+    @task(1)
+    def upload_small_file(self):
+        self.client.upload_small_file()
+        print("Upload small file completed")
+
+class UploadSmallFileUser2b(XmlRpcUser):
+    host = "http://127.0.0.1:8902/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(1, 2)
+    @task(1)
+    def upload_small_file(self):
+        self.client.upload_small_file()
+        print("Upload small file completed")
+
+class UploadSmallFileUser3b(XmlRpcUser):
+    host = "http://127.0.0.1:8903/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(1, 2)
+    @task(1)
+    def upload_small_file(self):
+        self.client.upload_small_file()
+        print("Upload small file completed")
+
+class UploadSmallFileUser4b(XmlRpcUser):
+    host = "http://127.0.0.1:8904/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(1, 2)
+    @task(1)
+    def upload_small_file(self):
+        self.client.upload_small_file()
+        print("Upload small file completed")
+
+class DownloadLargeFileUser1b(XmlRpcUser):
+    host = "http://127.0.0.1:8905/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(6, 7)
+    @task(1)
+    def download_large_file(self):
+        self.client.download_large_file()
+        print("Download large file completed")
+
+class DownloadLargeFileUser2b(XmlRpcUser):
+    host = "http://127.0.0.1:8906/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(6, 7)
+    @task(1)
+    def download_large_file(self):
+        self.client.download_large_file()
+        print("Download large file completed")
+
+class DownloadLargeFileUser3b(XmlRpcUser):
+    host = "http://127.0.0.1:8907/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(6, 7)
+    @task(1)
+    def download_large_file(self):
+        self.client.download_large_file()
+        print("Download large file completed")
+
+class DownloadLargeFileUser4b(XmlRpcUser):
+    host = "http://127.0.0.1:8908/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(6, 7)
+    @task(1)
+    def download_large_file(self):
+        self.client.download_large_file()
+        print("Download large file completed")
+
+class DownloadSmallFileUser1b(XmlRpcUser):
+    host = "http://127.0.0.1:8909/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(1, 2)
+    @task(1)
+    def download_small_file(self):
+        self.client.download_small_file()
+        print("Download small file completed")
+
+class DownloadSmallFileUser2b(XmlRpcUser):
+    host = "http://127.0.0.1:8910/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(1, 2)
+    @task(1)
+    def download_small_file(self):
+        self.client.download_small_file()
+        print("Download small file completed")
+
+class DownloadSmallFileUser3b(XmlRpcUser):
+    host = "http://127.0.0.1:8911/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(1, 2)
+    @task(1)
+    def download_small_file(self):
+        self.client.download_small_file()
+        print("Download small file completed")
+
+class DownloadSmallFileUser4b(XmlRpcUser):
+    host = "http://127.0.0.1:8912/"
+    
+    # make simulated users wait between x & x secs after each task is executed
+    wait_time = between(1, 2)
+    @task(1)
+    def download_small_file(self):
+        self.client.download_small_file()
+        print("Download small file completed")

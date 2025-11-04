@@ -14,7 +14,7 @@ port = None
 
 def upload_large_file():
     oci_file_path = "dest_files/test_file_upload_140mb_" + port + ".bin"
-    local_file_path = "./test_file_upload_140mb.bin"
+    local_file_path = "/mnt/data2/test_data/test_file_upload_140mb.bin"
 
     try:
         #print(f"[INFO] Uploading file {local_file_path} -> {oci_file_path}")
@@ -27,7 +27,7 @@ def upload_large_file():
 
 def upload_small_file():
     oci_file_path = "dest_files/test_file_upload_8mb_" + port + ".bin"
-    local_file_path = "./test_file_upload_8mb.bin"
+    local_file_path = "/mnt/data2/test_data/test_file_upload_8mb.bin"
 
     try:
         #print(f"[INFO] Uploading file {local_file_path} -> {oci_file_path}")
@@ -40,7 +40,7 @@ def upload_small_file():
 
 def download_large_file():
     oci_file_path = "src_files/test_file_140mb.bin"
-    local_file_path = "./test_file_140mb_" + port + ".bin"
+    local_file_path = "/mnt/data2/test_data/test_file_140mb_" + port + ".bin"
 
     try:
         #print(f"[INFO] Downloading file {oci_file_path} --> {local_file_path}")
@@ -53,7 +53,7 @@ def download_large_file():
 
 def download_small_file():
     oci_file_path = "src_files/test_file_8mb.bin"
-    local_file_path = "./test_file_8mb_" + port + ".bin"
+    local_file_path = "/mnt/data2/test_data/test_file_8mb_" + port + ".bin"
 
     try:
         #print(f"[INFO] Downloading file {oci_file_path} --> {local_file_path}")

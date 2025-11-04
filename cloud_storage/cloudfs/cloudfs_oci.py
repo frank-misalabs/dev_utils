@@ -34,11 +34,11 @@ class OCICloudFs:
 
     def upload_file(self, path: str, local_path: str) -> None:
         with open(local_path, 'rb') as local_file:
-            with self.fs.open(self._get_path(path), 'wb') as s3_file:
-                s3_file.write(local_file.read())
+            with self.fs.open(self._get_path(path), 'wb') as oci_file:
+                oci_file.write(local_file.read())
 
     def download_file(self, path: str, local_path: str) -> None:
         with open(local_path, 'wb') as local_file:
-            with self.fs.open(self._get_path(path), 'rb') as s3_file:
-                local_file.write(s3_file.read())
+            with self.fs.open(self._get_path(path), 'rb') as oci_file:
+                local_file.write(oci_file.read())
 

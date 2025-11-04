@@ -25,7 +25,7 @@ fs = CloudFs(S3_URI, **S3_OPTS)
 
 def upload_large_file():
     s3_file_path = "dest_files/test_file_upload_140mb.bin"
-    local_file_path = "./test_file_upload_140mb.bin"
+    local_file_path = "/mnt/data2/test_data/test_file_upload_140mb.bin"
 
     try:
         #print(f"[INFO] Uploading file {local_file_path} -> {S3_URI}/{s3_file_path}")
@@ -38,7 +38,7 @@ def upload_large_file():
 
 def upload_small_file():
     s3_file_path = "dest_files/test_file_upload_8mb.bin"
-    local_file_path = "./test_file_upload_8mb.bin"
+    local_file_path = "/mnt/data2/test_data/test_file_upload_8mb.bin"
 
     try:
         #print(f"[INFO] Uploading file {local_file_path} -> {S3_URI}/{s3_file_path}")
@@ -51,7 +51,7 @@ def upload_small_file():
 
 def download_large_file():
     s3_file_path = "src_files/test_file_140mb.bin"
-    local_file_path = "./test_file_140mb_" + port + ".bin"
+    local_file_path = "/mnt/data2/test_data/test_file_140mb_" + port + ".bin"
 
     try:
         #print(f"[INFO] Downloading file {S3_URI}/{s3_file_path} --> {local_file_path}")
@@ -64,7 +64,7 @@ def download_large_file():
 
 def download_small_file():
     s3_file_path = "src_files/test_file_8mb.bin"
-    local_file_path = "./test_file_8mb_" + port + ".bin"
+    local_file_path = "/mnt/data2/test_data/test_file_8mb_" + port + ".bin"
 
     try:
         #print(f"[INFO] Downloading file {S3_URI}/{s3_file_path} --> {local_file_path}")
