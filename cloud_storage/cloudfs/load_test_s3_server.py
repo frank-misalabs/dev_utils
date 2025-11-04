@@ -1,3 +1,8 @@
+# This is the XML RPC server that performs the cloud file read and write
+# This is needed as fsspec sync does not work within Locust coroutine
+# An extra XMLRPC layer is needed to wrap the cloudfs (using fsspec)
+# upload/download functions
+
 import random
 import os
 import sys
@@ -11,6 +16,7 @@ S3_URI = os.getenv("S3_URI")
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_REGION = os.getenv("AWS_REGION", "us-east-1")
+port = None
 
 S3_OPTS = {
     "key": AWS_ACCESS_KEY_ID,
@@ -23,9 +29,14 @@ print(f"[INFO] AWS_ACCESS_KEY_ID: {AWS_ACCESS_KEY_ID}")
 print(f"[INFO] AWS_REGION: {AWS_REGION}")
 fs = CloudFs(S3_URI, **S3_OPTS)
 
+# It is important to choose a high performance block volume to keep low latency and variation
+# of file read/write throughput. Please change to a different path that you've mounted for
+# a folder in the high performance volume
+local_base_path = "/mnt/data2/test_data"
+
 def upload_large_file():
     s3_file_path = "dest_files/test_file_upload_140mb.bin"
-    local_file_path = "/mnt/data2/test_data/test_file_upload_140mb.bin"
+    local_file_path = local_base_path + "/test_file_upload_140mb.bin"
 
     try:
         #print(f"[INFO] Uploading file {local_file_path} -> {S3_URI}/{s3_file_path}")
@@ -38,7 +49,7 @@ def upload_large_file():
 
 def upload_small_file():
     s3_file_path = "dest_files/test_file_upload_8mb.bin"
-    local_file_path = "/mnt/data2/test_data/test_file_upload_8mb.bin"
+    local_file_path = local_base_path + "/test_file_upload_8mb.bin"
 
     try:
         #print(f"[INFO] Uploading file {local_file_path} -> {S3_URI}/{s3_file_path}")
@@ -51,7 +62,7 @@ def upload_small_file():
 
 def download_large_file():
     s3_file_path = "src_files/test_file_140mb.bin"
-    local_file_path = "/mnt/data2/test_data/test_file_140mb_" + port + ".bin"
+    local_file_path = local_base_path + "/test_file_140mb_" + port + ".bin"
 
     try:
         #print(f"[INFO] Downloading file {S3_URI}/{s3_file_path} --> {local_file_path}")
@@ -64,7 +75,7 @@ def download_large_file():
 
 def download_small_file():
     s3_file_path = "src_files/test_file_8mb.bin"
-    local_file_path = "/mnt/data2/test_data/test_file_8mb_" + port + ".bin"
+    local_file_path = local_base_path + "/test_file_8mb_" + port + ".bin"
 
     try:
         #print(f"[INFO] Downloading file {S3_URI}/{s3_file_path} --> {local_file_path}")
