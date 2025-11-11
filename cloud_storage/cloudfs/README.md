@@ -4,7 +4,7 @@
 
 ### Install python dependencies
 ```shell
-pip install fsspec s3fs
+pip install fsspec s3fs dotenv
 ```
 
 ### Create test file
