@@ -11,7 +11,7 @@ pip install fsspec s3fs
 
 On your local machine
 ```shell
-truncate -s 140mb test_file_140mb.bin
+truncate -s 140m test_file_140mb.bin
 ```
 
 On your S3 bucket
